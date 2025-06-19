@@ -1,4 +1,4 @@
-﻿# Cipher-Quiz-Battle
+﻿# Cipher-Quiz-Battle: Quiz App
 
 A KBC‑style quiz built with Expo & React Native.
 
