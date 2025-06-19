@@ -1,0 +1,709 @@
+[
+  // --------- EASY LEVEL (1-25) ---------
+  {
+    "id": 1,
+    "level": "easy",
+    "question": "What is the national bird of India?",
+    "options": { "A": "Peacock", "B": "Sparrow", "C": "Eagle", "D": "Parrot" },
+    "answer": "A"
+  },
+  {
+    "id": 2,
+    "level": "easy",
+    "question": "Which river is the longest in India?",
+    "options": { "A": "Yamuna", "B": "Ganga", "C": "Godavari", "D": "Brahmaputra" },
+    "answer": "B"
+  },
+  {
+    "id": 3,
+    "level": "easy",
+    "question": "Who is known as the Father of the Nation in India?",
+    "options": { "A": "Jawaharlal Nehru", "B": "Mahatma Gandhi", "C": "Sardar Patel", "D": "Subhas Chandra Bose" },
+    "answer": "B"
+  },
+  {
+    "id": 4,
+    "level": "easy",
+    "question": "What is the currency of India?",
+    "options": { "A": "Dollar", "B": "Pound", "C": "Rupee", "D": "Yen" },
+    "answer": "C"
+  },
+  {
+    "id": 5,
+    "level": "easy",
+    "question": "Which is the smallest state in India by area?",
+    "options": { "A": "Goa", "B": "Sikkim", "C": "Tripura", "D": "Manipur" },
+    "answer": "A"
+  },
+  {
+    "id": 6,
+    "level": "easy",
+    "question": "Who is the President of India as of 2025?",
+    "options": { "A": "Ram Nath Kovind", "B": "Droupadi Murmu", "C": "Pranab Mukherjee", "D": "Narendra Modi" },
+    "answer": "B"
+  },
+  {
+    "id": 7,
+    "level": "easy",
+    "question": "What is the national flower of India?",
+    "options": { "A": "Rose", "B": "Lotus", "C": "Sunflower", "D": "Jasmine" },
+    "answer": "B"
+  },
+  {
+    "id": 8,
+    "level": "easy",
+    "question": "Which Indian city is known as the Pink City?",
+    "options": { "A": "Jaipur", "B": "Udaipur", "C": "Jodhpur", "D": "Agra" },
+    "answer": "A"
+  },
+  {
+    "id": 9,
+    "level": "easy",
+    "question": "Who is the current Prime Minister of India (2025)?",
+    "options": { "A": "Rahul Gandhi", "B": "Narendra Modi", "C": "Amit Shah", "D": "Arvind Kejriwal" },
+    "answer": "B"
+  },
+  {
+    "id": 10,
+    "level": "easy",
+    "question": "What is the official language of India?",
+    "options": { "A": "English", "B": "Hindi", "C": "Bengali", "D": "Tamil" },
+    "answer": "B"
+  },
+  {
+    "id": 11,
+    "level": "easy",
+    "question": "Which Indian festival is known as the Festival of Lights?",
+    "options": { "A": "Holi", "B": "Diwali", "C": "Eid", "D": "Christmas" },
+    "answer": "B"
+  },
+  {
+    "id": 12,
+    "level": "easy",
+    "question": "Which Indian city is famous for the Gateway of India?",
+    "options": { "A": "Delhi", "B": "Mumbai", "C": "Chennai", "D": "Kolkata" },
+    "answer": "B"
+  },
+  {
+    "id": 13,
+    "level": "easy",
+    "question": "Which Indian state is known as the Land of Five Rivers?",
+    "options": { "A": "Punjab", "B": "Haryana", "C": "Gujarat", "D": "Bihar" },
+    "answer": "A"
+  },
+  {
+    "id": 14,
+    "level": "easy",
+    "question": "Which Indian cricketer is called the 'God of Cricket'?",
+    "options": { "A": "Virat Kohli", "B": "Kapil Dev", "C": "Sachin Tendulkar", "D": "Sunil Gavaskar" },
+    "answer": "C"
+  },
+  {
+    "id": 15,
+    "level": "easy",
+    "question": "What is the staple food of South India?",
+    "options": { "A": "Roti", "B": "Rice", "C": "Bread", "D": "Pasta" },
+    "answer": "B"
+  },
+  {
+    "id": 16,
+    "level": "easy",
+    "question": "Which Indian monument is one of the Seven Wonders of the World?",
+    "options": { "A": "Qutub Minar", "B": "Taj Mahal", "C": "Red Fort", "D": "Charminar" },
+    "answer": "B"
+  },
+  {
+    "id": 17,
+    "level": "easy",
+    "question": "Which Indian state is famous for Sambar and Dosa?",
+    "options": { "A": "Kerala", "B": "Tamil Nadu", "C": "Punjab", "D": "Gujarat" },
+    "answer": "B"
+  },
+  {
+    "id": 18,
+    "level": "easy",
+    "question": "What is the national animal of India?",
+    "options": { "A": "Lion", "B": "Tiger", "C": "Elephant", "D": "Leopard" },
+    "answer": "B"
+  },
+  {
+    "id": 19,
+    "level": "easy",
+    "question": "Which Indian festival is celebrated with colors?",
+    "options": { "A": "Diwali", "B": "Holi", "C": "Eid", "D": "Navratri" },
+    "answer": "B"
+  },
+  {
+    "id": 20,
+    "level": "easy",
+    "question": "Which Indian city is called the City of Lakes?",
+    "options": { "A": "Udaipur", "B": "Bhopal", "C": "Hyderabad", "D": "Jaipur" },
+    "answer": "A"
+  },
+  {
+    "id": 21,
+    "level": "easy",
+    "question": "Which Indian state is famous for tea gardens?",
+    "options": { "A": "Kerala", "B": "Assam", "C": "Goa", "D": "Odisha" },
+    "answer": "B"
+  },
+  {
+    "id": 22,
+    "level": "easy",
+    "question": "Which Indian city is known as the IT capital of India?",
+    "options": { "A": "Chennai", "B": "Bengaluru", "C": "Hyderabad", "D": "Pune" },
+    "answer": "B"
+  },
+  {
+    "id": 23,
+    "level": "easy",
+    "question": "Which Indian festival marks the beginning of the harvest season?",
+    "options": { "A": "Pongal", "B": "Diwali", "C": "Raksha Bandhan", "D": "Eid" },
+    "answer": "A"
+  },
+  {
+    "id": 24,
+    "level": "easy",
+    "question": "Which Indian state is known for the Bihu festival?",
+    "options": { "A": "Assam", "B": "West Bengal", "C": "Punjab", "D": "Maharashtra" },
+    "answer": "A"
+  },
+  {
+    "id": 25,
+    "level": "easy",
+    "question": "Which Indian city is famous for the Charminar?",
+    "options": { "A": "Hyderabad", "B": "Lucknow", "C": "Delhi", "D": "Bhopal" },
+    "answer": "A"
+  },
+
+  // --------- MEDIUM LEVEL (26-50) ---------
+  {
+    "id": 26,
+    "level": "medium",
+    "question": "Who was the first President of independent India?",
+    "options": { "A": "Rajendra Prasad", "B": "Zakir Hussain", "C": "Sarvepalli Radhakrishnan", "D": "V. V. Giri" },
+    "answer": "A"
+  },
+  {
+    "id": 27,
+    "level": "medium",
+    "question": "Which Indian state is the largest by area?",
+    "options": { "A": "Maharashtra", "B": "Uttar Pradesh", "C": "Rajasthan", "D": "Madhya Pradesh" },
+    "answer": "C"
+  },
+  {
+    "id": 28,
+    "level": "medium",
+    "question": "In which year did India host the Commonwealth Games?",
+    "options": { "A": "2008", "B": "2010", "C": "2012", "D": "2014" },
+    "answer": "B"
+  },
+  {
+    "id": 29,
+    "level": "medium",
+    "question": "Who was the first Indian to win an individual Olympic gold medal?",
+    "options": { "A": "Abhinav Bindra", "B": "Milkha Singh", "C": "P. T. Usha", "D": "Saina Nehwal" },
+    "answer": "A"
+  },
+  {
+    "id": 30,
+    "level": "medium",
+    "question": "Which Indian city is called the Silicon Valley of India?",
+    "options": { "A": "Hyderabad", "B": "Pune", "C": "Bengaluru", "D": "Chennai" },
+    "answer": "C"
+  },
+  {
+    "id": 31,
+    "level": "medium",
+    "question": "Who wrote the book \"Discovery of India\"?",
+    "options": { "A": "Rabindranath Tagore", "B": "Jawaharlal Nehru", "C": "S. Radhakrishnan", "D": "Mahatma Gandhi" },
+    "answer": "B"
+  },
+  {
+    "id": 32,
+    "level": "medium",
+    "question": "Where is the headquarters of the Indian Space Research Organisation (ISRO)?",
+    "options": { "A": "Mumbai", "B": "Bengaluru", "C": "Chennai", "D": "Hyderabad" },
+    "answer": "B"
+  },
+  {
+    "id": 33,
+    "level": "medium",
+    "question": "Which Indian state is famous for the dance form Kathakali?",
+    "options": { "A": "Tamil Nadu", "B": "Kerala", "C": "Karnataka", "D": "Andhra Pradesh" },
+    "answer": "B"
+  },
+  {
+    "id": 34,
+    "level": "medium",
+    "question": "Who was the first woman Chief Minister of an Indian state?",
+    "options": { "A": "Sucheta Kripalani", "B": "Indira Gandhi", "C": "Jayalalithaa", "D": "Mayawati" },
+    "answer": "A"
+  },
+  {
+    "id": 35,
+    "level": "medium",
+    "question": "Which Indian city is known as the City of Joy?",
+    "options": { "A": "Mumbai", "B": "Kolkata", "C": "Delhi", "D": "Chennai" },
+    "answer": "B"
+  },
+  {
+    "id": 36,
+    "level": "medium",
+    "question": "Which Indian scientist is known for the discovery of the Raman Effect?",
+    "options": { "A": "C. V. Raman", "B": "Homi Bhabha", "C": "S. Chandrasekhar", "D": "Vikram Sarabhai" },
+    "answer": "A"
+  },
+  {
+    "id": 37,
+    "level": "medium",
+    "question": "Which Indian state is the largest producer of wheat?",
+    "options": { "A": "Punjab", "B": "Uttar Pradesh", "C": "Haryana", "D": "Madhya Pradesh" },
+    "answer": "B"
+  },
+  {
+    "id": 38,
+    "level": "medium",
+    "question": "Who is the founder of Infosys?",
+    "options": { "A": "Azim Premji", "B": "N. R. Narayana Murthy", "C": "Mukesh Ambani", "D": "Ratan Tata" },
+    "answer": "B"
+  },
+  {
+    "id": 39,
+    "level": "medium",
+    "question": "Which Indian movie won the Oscar for Best Original Song in 2009?",
+    "options": { "A": "Lagaan", "B": "Slumdog Millionaire", "C": "Mother India", "D": "Gully Boy" },
+    "answer": "B"
+  },
+  {
+    "id": 40,
+    "level": "medium",
+    "question": "Which Indian state is the largest producer of spices?",
+    "options": { "A": "Kerala", "B": "Andhra Pradesh", "C": "Tamil Nadu", "D": "Karnataka" },
+    "answer": "A"
+  },
+  {
+    "id": 41,
+    "level": "medium",
+    "question": "Who was the first Indian to win the Miss Universe title?",
+    "options": { "A": "Sushmita Sen", "B": "Aishwarya Rai", "C": "Priyanka Chopra", "D": "Lara Dutta" },
+    "answer": "A"
+  },
+  {
+    "id": 42,
+    "level": "medium",
+    "question": "Which Indian city is famous for its IT industry and is called 'Cyberabad'?",
+    "options": { "A": "Bengaluru", "B": "Hyderabad", "C": "Pune", "D": "Gurgaon" },
+    "answer": "B"
+  },
+  {
+    "id": 43,
+    "level": "medium",
+    "question": "Which Indian state is known as the 'Spice Garden of India'?",
+    "options": { "A": "Kerala", "B": "Goa", "C": "Assam", "D": "Karnataka" },
+    "answer": "A"
+  },
+  {
+    "id": 44,
+    "level": "medium",
+    "question": "Who is the first Indian woman to win an Olympic medal?",
+    "options": { "A": "Mary Kom", "B": "P. T. Usha", "C": "Karnam Malleswari", "D": "Saina Nehwal" },
+    "answer": "C"
+  },
+  {
+    "id": 45,
+    "level": "medium",
+    "question": "Which Indian city is known as the 'Manchester of India'?",
+    "options": { "A": "Surat", "B": "Ahmedabad", "C": "Mumbai", "D": "Kanpur" },
+    "answer": "B"
+  },
+  {
+    "id": 46,
+    "level": "medium",
+    "question": "Which Indian state is the largest producer of cotton?",
+    "options": { "A": "Punjab", "B": "Gujarat", "C": "Maharashtra", "D": "Andhra Pradesh" },
+    "answer": "B"
+  },
+  {
+    "id": 47,
+    "level": "medium",
+    "question": "Who is the founder of Reliance Industries?",
+    "options": { "A": "Mukesh Ambani", "B": "Dhirubhai Ambani", "C": "Anil Ambani", "D": "Ratan Tata" },
+    "answer": "B"
+  },
+  {
+    "id": 48,
+    "level": "medium",
+    "question": "Which Indian state is called the 'Land of Rising Sun'?",
+    "options": { "A": "Sikkim", "B": "Arunachal Pradesh", "C": "Nagaland", "D": "Manipur" },
+    "answer": "B"
+  },
+  {
+    "id": 49,
+    "level": "medium",
+    "question": "Which Indian city is famous for the Golden Temple?",
+    "options": { "A": "Delhi", "B": "Amritsar", "C": "Chandigarh", "D": "Lucknow" },
+    "answer": "B"
+  },
+  {
+    "id": 50,
+    "level": "medium",
+    "question": "Which Indian state is the largest producer of sugarcane?",
+    "options": { "A": "Uttar Pradesh", "B": "Maharashtra", "C": "Tamil Nadu", "D": "Karnataka" },
+    "answer": "A"
+  },
+
+  // --------- HARD LEVEL (51-75) ---------
+  {
+    "id": 51,
+    "level": "hard",
+    "question": "Who was the first Indian to receive the Bharat Ratna?",
+    "options": { "A": "C. Rajagopalachari", "B": "S. Radhakrishnan", "C": "C. V. Raman", "D": "Rajendra Prasad" },
+    "answer": "B"
+  },
+  {
+    "id": 52,
+    "level": "hard",
+    "question": "In which year did the Battle of Plassey take place?",
+    "options": { "A": "1757", "B": "1764", "C": "1857", "D": "1707" },
+    "answer": "A"
+  },
+  {
+    "id": 53,
+    "level": "hard",
+    "question": "What is the highest civilian award in India?",
+    "options": { "A": "Padma Bhushan", "B": "Bharat Ratna", "C": "Padma Shri", "D": "Padma Vibhushan" },
+    "answer": "B"
+  },
+  {
+    "id": 54,
+    "level": "hard",
+    "question": "Which Indian state has the highest literacy rate as per Census 2011?",
+    "options": { "A": "Kerala", "B": "Tamil Nadu", "C": "Goa", "D": "Mizoram" },
+    "answer": "A"
+  },
+  {
+    "id": 55,
+    "level": "hard",
+    "question": "Who was the first Indian woman to climb Mount Everest?",
+    "options": { "A": "Bachendri Pal", "B": "Santosh Yadav", "C": "Arunima Sinha", "D": "Premlata Agarwal" },
+    "answer": "A"
+  },
+  {
+    "id": 56,
+    "level": "hard",
+    "question": "Which Indian city hosted the first Asian Games in 1951?",
+    "options": { "A": "Mumbai", "B": "Kolkata", "C": "New Delhi", "D": "Chennai" },
+    "answer": "C"
+  },
+  {
+    "id": 57,
+    "level": "hard",
+    "question": "Who was the founder of the Maurya Empire?",
+    "options": { "A": "Chandragupta Maurya", "B": "Ashoka", "C": "Bindusara", "D": "Harsha" },
+    "answer": "A"
+  },
+  {
+    "id": 58,
+    "level": "hard",
+    "question": "What is the name of the first satellite launched by India?",
+    "options": { "A": "Aryabhata", "B": "Bhaskara", "C": "Rohini", "D": "INSAT-1A" },
+    "answer": "A"
+  },
+  {
+    "id": 59,
+    "level": "hard",
+    "question": "Which Indian river is also known as the 'Dakshina Ganga'?",
+    "options": { "A": "Godavari", "B": "Krishna", "C": "Kaveri", "D": "Narmada" },
+    "answer": "A"
+  },
+  {
+    "id": 60,
+    "level": "hard",
+    "question": "Who was the first Indian to win the Nobel Prize in Physics?",
+    "options": { "A": "C. V. Raman", "B": "Homi Bhabha", "C": "S. Chandrasekhar", "D": "Venkatraman Ramakrishnan" },
+    "answer": "A"
+  },
+  {
+    "id": 61,
+    "level": "hard",
+    "question": "Which Indian state has the longest coastline?",
+    "options": { "A": "Gujarat", "B": "Kerala", "C": "Tamil Nadu", "D": "Maharashtra" },
+    "answer": "A"
+  },
+  {
+    "id": 62,
+    "level": "hard",
+    "question": "Who was the first Indian to win a Nobel Prize?",
+    "options": { "A": "Rabindranath Tagore", "B": "C. V. Raman", "C": "Amartya Sen", "D": "Mother Teresa" },
+    "answer": "A"
+  },
+  {
+    "id": 63,
+    "level": "hard",
+    "question": "Which Indian city is known as the 'City of Nawabs'?",
+    "options": { "A": "Hyderabad", "B": "Lucknow", "C": "Bhopal", "D": "Patna" },
+    "answer": "B"
+  },
+  {
+    "id": 64,
+    "level": "hard",
+    "question": "Who is known as the 'Iron Man of India'?",
+    "options": { "A": "Jawaharlal Nehru", "B": "Sardar Vallabhbhai Patel", "C": "B. R. Ambedkar", "D": "Subhas Chandra Bose" },
+    "answer": "B"
+  },
+  {
+    "id": 65,
+    "level": "hard",
+    "question": "Which Indian scientist is known as the 'Father of the Indian Nuclear Programme'?",
+    "options": { "A": "Vikram Sarabhai", "B": "Homi Bhabha", "C": "A. P. J. Abdul Kalam", "D": "Satish Dhawan" },
+    "answer": "B"
+  },
+  {
+    "id": 66,
+    "level": "hard",
+    "question": "Which Indian state is the largest producer of coffee?",
+    "options": { "A": "Kerala", "B": "Tamil Nadu", "C": "Karnataka", "D": "Assam" },
+    "answer": "C"
+  },
+  {
+    "id": 67,
+    "level": "hard",
+    "question": "Who was the first Indian to win the Booker Prize?",
+    "options": { "A": "Kiran Desai", "B": "Arundhati Roy", "C": "Salman Rushdie", "D": "V. S. Naipaul" },
+    "answer": "B"
+  },
+  {
+    "id": 68,
+    "level": "hard",
+    "question": "Which Indian city is known as the 'Diamond City'?",
+    "options": { "A": "Mumbai", "B": "Surat", "C": "Jaipur", "D": "Hyderabad" },
+    "answer": "B"
+  },
+  {
+    "id": 69,
+    "level": "hard",
+    "question": "Who was the first Indian to win an Olympic medal in Badminton?",
+    "options": { "A": "P. V. Sindhu", "B": "Saina Nehwal", "C": "Kidambi Srikanth", "D": "Prakash Padukone" },
+    "answer": "B"
+  },
+  {
+    "id": 70,
+    "level": "hard",
+    "question": "Which Indian state is known as the 'Land of Festivals'?",
+    "options": { "A": "Nagaland", "B": "Manipur", "C": "Mizoram", "D": "Assam" },
+    "answer": "A"
+  },
+  {
+    "id": 71,
+    "level": "hard",
+    "question": "Who was the first Indian to win an Olympic medal in wrestling?",
+    "options": { "A": "Sushil Kumar", "B": "Yogeshwar Dutt", "C": "K. D. Jadhav", "D": "Bajrang Punia" },
+    "answer": "C"
+  },
+  {
+    "id": 72,
+    "level": "hard",
+    "question": "Which Indian city is home to the headquarters of the Reserve Bank of India?",
+    "options": { "A": "Delhi", "B": "Mumbai", "C": "Chennai", "D": "Kolkata" },
+    "answer": "B"
+  },
+  {
+    "id": 73,
+    "level": "hard",
+    "question": "Which Indian state is the largest producer of jute?",
+    "options": { "A": "Assam", "B": "West Bengal", "C": "Odisha", "D": "Bihar" },
+    "answer": "B"
+  },
+  {
+    "id": 74,
+    "level": "hard",
+    "question": "Who is known as the 'Missile Woman of India'?",
+    "options": { "A": "Tessy Thomas", "B": "Kalpana Chawla", "C": "Sunita Williams", "D": "Indira Gandhi" },
+    "answer": "A"
+  },
+  {
+    "id": 75,
+    "level": "hard",
+    "question": "Which Indian city is famous for the Sun Temple at Konark?",
+    "options": { "A": "Bhubaneswar", "B": "Puri", "C": "Konark", "D": "Cuttack" },
+    "answer": "C"
+  },
+
+  // --------- JACKPOT LEVEL (76-100) ---------
+  {
+    "id": 76,
+    "level": "jackpot",
+    "question": "Who was the first Indian to travel to space?",
+    "options": { "A": "Kalpana Chawla", "B": "Sunita Williams", "C": "Rakesh Sharma", "D": "Vikram Sarabhai" },
+    "answer": "C"
+  },
+  {
+    "id": 77,
+    "level": "jackpot",
+    "question": "In which year did India become a republic?",
+    "options": { "A": "1947", "B": "1950", "C": "1952", "D": "1949" },
+    "answer": "B"
+  },
+  {
+    "id": 78,
+    "level": "jackpot",
+    "question": "Who is known as the Missile Man of India?",
+    "options": { "A": "Vikram Sarabhai", "B": "Homi Bhabha", "C": "A. P. J. Abdul Kalam", "D": "Satish Dhawan" },
+    "answer": "C"
+  },
+  {
+    "id": 79,
+    "level": "jackpot",
+    "question": "Which Indian city is known as the Tea Capital of India?",
+    "options": { "A": "Darjeeling", "B": "Guwahati", "C": "Dibrugarh", "D": "Siliguri" },
+    "answer": "C"
+  },
+  {
+    "id": 80,
+    "level": "jackpot",
+    "question": "Who was the first Indian woman to win the Miss World title?",
+    "options": { "A": "Aishwarya Rai", "B": "Reita Faria", "C": "Priyanka Chopra", "D": "Sushmita Sen" },
+    "answer": "B"
+  },
+  {
+    "id": 81,
+    "level": "jackpot",
+    "question": "Which Indian state shares its border with the maximum number of states?",
+    "options": { "A": "Uttar Pradesh", "B": "Madhya Pradesh", "C": "Bihar", "D": "Rajasthan" },
+    "answer": "A"
+  },
+  {
+    "id": 82,
+    "level": "jackpot",
+    "question": "Who is the only Indian to have won an Oscar for Best Original Song?",
+    "options": { "A": "A. R. Rahman", "B": "Lata Mangeshkar", "C": "S. P. Balasubrahmanyam", "D": "Shankar Mahadevan" },
+    "answer": "A"
+  },
+  {
+    "id": 83,
+    "level": "jackpot",
+    "question": "Who was the first Indian Governor-General of independent India?",
+    "options": { "A": "Rajendra Prasad", "B": "C. Rajagopalachari", "C": "Sardar Patel", "D": "Jawaharlal Nehru" },
+    "answer": "B"
+  },
+  {
+    "id": 84,
+    "level": "jackpot",
+    "question": "Which Indian state is the largest producer of spices?",
+    "options": { "A": "Kerala", "B": "Andhra Pradesh", "C": "Tamil Nadu", "D": "Karnataka" },
+    "answer": "A"
+  },
+  {
+    "id": 85,
+    "level": "jackpot",
+    "question": "Who was the first Indian to win the Nobel Prize for Literature?",
+    "options": { "A": "Rabindranath Tagore", "B": "R. K. Narayan", "C": "Salman Rushdie", "D": "Vikram Seth" },
+    "answer": "A"
+  },
+  {
+    "id": 86,
+    "level": "jackpot",
+    "question": "Which Indian scientist received the Nobel Prize in Chemistry in 2009?",
+    "options": { "A": "C. V. Raman", "B": "Venkatraman Ramakrishnan", "C": "Homi Bhabha", "D": "S. Chandrasekhar" },
+    "answer": "B"
+  },
+  {
+    "id": 87,
+    "level": "jackpot",
+    "question": "Which Indian city is known as the 'City of Destiny'?",
+    "options": { "A": "Visakhapatnam", "B": "Mumbai", "C": "Chennai", "D": "Kolkata" },
+    "answer": "A"
+  },
+  {
+    "id": 88,
+    "level": "jackpot",
+    "question": "Which Indian company is the largest IT services provider?",
+    "options": { "A": "Infosys", "B": "TCS", "C": "Wipro", "D": "HCL" },
+    "answer": "B"
+  },
+  {
+    "id": 89,
+    "level": "jackpot",
+    "question": "Who was the first Indian to win an Olympic gold in athletics?",
+    "options": { "A": "Milkha Singh", "B": "Neeraj Chopra", "C": "P. T. Usha", "D": "Abhinav Bindra" },
+    "answer": "B"
+  },
+  {
+    "id": 90,
+    "level": "jackpot",
+    "question": "Who is the first Indian to win the Man Booker International Prize?",
+    "options": { "A": "Aravind Adiga", "B": "Arundhati Roy", "C": "Geetanjali Shree", "D": "Salman Rushdie" },
+    "answer": "C"
+  },
+  {
+    "id": 91,
+    "level": "jackpot",
+    "question": "Which Indian state is known as the 'Land of the Rising Sun'?",
+    "options": { "A": "Sikkim", "B": "Arunachal Pradesh", "C": "Nagaland", "D": "Manipur" },
+    "answer": "B"
+  },
+  {
+    "id": 92,
+    "level": "jackpot",
+    "question": "Who is the first Indian woman to win a silver medal at the Olympics?",
+    "options": { "A": "P. V. Sindhu", "B": "Mary Kom", "C": "Saina Nehwal", "D": "Karnam Malleswari" },
+    "answer": "A"
+  },
+  {
+    "id": 93,
+    "level": "jackpot",
+    "question": "Which Indian city is known as the 'City of Pearls'?",
+    "options": { "A": "Hyderabad", "B": "Mumbai", "C": "Chennai", "D": "Jaipur" },
+    "answer": "A"
+  },
+  {
+    "id": 94,
+    "level": "jackpot",
+    "question": "Who is the founder of the Indian Premier League (IPL)?",
+    "options": { "A": "Lalit Modi", "B": "N. Srinivasan", "C": "Rajeev Shukla", "D": "Shashank Manohar" },
+    "answer": "A"
+  },
+  {
+    "id": 95,
+    "level": "jackpot",
+    "question": "Which Indian state is the largest producer of silk?",
+    "options": { "A": "Karnataka", "B": "Tamil Nadu", "C": "West Bengal", "D": "Assam" },
+    "answer": "A"
+  },
+  {
+    "id": 96,
+    "level": "jackpot",
+    "question": "Which Indian film was nominated for Best International Feature at the Oscars in 2023?",
+    "options": { "A": "Lagaan", "B": "RRR", "C": "The Lunchbox", "D": "Mother India" },
+    "answer": "B"
+  },
+  {
+    "id": 97,
+    "level": "jackpot",
+    "question": "Who is the first Indian woman to win the Miss Universe crown?",
+    "options": { "A": "Sushmita Sen", "B": "Lara Dutta", "C": "Aishwarya Rai", "D": "Priyanka Chopra" },
+    "answer": "A"
+  },
+  {
+    "id": 98,
+    "level": "jackpot",
+    "question": "Which Indian company launched the first indigenous car, Indica?",
+    "options": { "A": "Maruti Suzuki", "B": "Tata Motors", "C": "Mahindra & Mahindra", "D": "Hyundai India" },
+    "answer": "B"
+  },
+  {
+    "id": 99,
+    "level": "jackpot",
+    "question": "Which Indian city is home to the headquarters of ISRO?",
+    "options": { "A": "Hyderabad", "B": "Bengaluru", "C": "Chennai", "D": "Mumbai" },
+    "answer": "B"
+  },
+  {
+    "id": 100,
+    "level": "jackpot",
+    "question": "Who is the first Indian to win a gold medal at the Paralympics?",
+    "options": { "A": "Devendra Jhajharia", "B": "Mariyappan Thangavelu", "C": "Deepa Malik", "D": "Avani Lekhara" },
+    "answer": "B"
+  }
+]
