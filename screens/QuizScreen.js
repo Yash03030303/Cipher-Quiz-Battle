@@ -1,13 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-  Alert,
-  Button,
-  Modal,
-  ScrollView
+  View, Text, StyleSheet, ActivityIndicator,
+  Alert, TouchableOpacity, Modal, ScrollView, Animated
 } from 'react-native';
 import { Audio } from 'expo-av';
 import QuestionCard from '../components/QuestionCard';
@@ -15,9 +9,13 @@ import LifelineBar from '../components/LifelineBar';
 import PrizeLadder from '../components/PrizeLadder';
 import allQuestions from '../data/questions.json';
 
+const LEVEL_ENDS = [4, 9, 14];
+const LEVEL_LABELS = ['First', 'Second', 'Third'];
+const SECURED_AMOUNTS = ['0', '10K', '3.2L', '1Cr'];
+
 export default function QuizScreen({ navigation }) {
-  const [quizQuestions, setQuizQuestions] = useState([]);
-  const [index, setIndex] = useState(0);
+  const [questions, setQuestions] = useState([]);
+  const [idx, setIdx] = useState(0);
   const [used5050, setUsed5050] = useState(false);
   const [usedFlip, setUsedFlip] = useState(false);
   const [usedIds, setUsedIds] = useState([]);
@@ -25,142 +23,147 @@ export default function QuizScreen({ navigation }) {
   const [loading, setLoading] = useState(true);
   const [timer, setTimer] = useState(0);
   const [ladderVisible, setLadderVisible] = useState(false);
+  const [breakModal, setBreakModal] = useState(false);
+  const [breakLevel, setBreakLevel] = useState(0);
 
   const [soundCorrect, setSoundCorrect] = useState();
   const [soundWrong, setSoundWrong] = useState();
 
   const intervalRef = useRef(null);
+  const progress = useRef(new Animated.Value(100)).current;
 
-  // 1) Load and select questions
   useEffect(() => {
-    const levels = { easy:[], medium:[], hard:[], jackpot:[] };
-    allQuestions.forEach(q => levels[q.level]?.push(q));
-    const shuffle = arr => [...arr].sort(() => 0.5 - Math.random());
-    const selection = [
-      ...shuffle(levels.easy).slice(0,5),
-      ...shuffle(levels.medium).slice(0,5),
-      ...shuffle(levels.hard).slice(0,5),
-      ...shuffle(levels.jackpot).slice(0,1),
+    const lvls = { easy:[], medium:[], hard:[], jackpot:[] };
+    allQuestions.forEach(q => lvls[q.level]?.push(q));
+    const shuffle = a => [...a].sort(()=>Math.random()-0.5);
+    const sel = [
+      ...shuffle(lvls.easy).slice(0,5),
+      ...shuffle(lvls.medium).slice(0,5),
+      ...shuffle(lvls.hard).slice(0,5),
+      ...shuffle(lvls.jackpot).slice(0,1)
     ];
-    setQuizQuestions(selection);
-    setUsedIds([selection[0].id]);
+    setQuestions(sel);
+    setUsedIds([sel[0].id]);
     setLoading(false);
   }, []);
 
-  // 2) Load correct & wrong sounds
   useEffect(() => {
-    const loadSounds = async () => {
-      const corr = new Audio.Sound();
-      const wrong = new Audio.Sound();
-      await corr.loadAsync(require('../assets/correct.mp3'));
-      await wrong.loadAsync(require('../assets/wrong.mp3'));
-      setSoundCorrect(corr);
-      setSoundWrong(wrong);
-    };
-    loadSounds();
+    (async () => {
+      const c = new Audio.Sound(), w = new Audio.Sound();
+      await c.loadAsync(require('../assets/correct.mp3'));
+      await w.loadAsync(require('../assets/wrong.mp3'));
+      setSoundCorrect(c); setSoundWrong(w);
+    })();
     return () => {
       soundCorrect?.unloadAsync();
       soundWrong?.unloadAsync();
     };
   }, []);
 
-  // 3) Timer logic, reset timer and options on question change
   useEffect(() => {
-    if (!quizQuestions.length) return;
+    if (!questions.length) return;
     clearInterval(intervalRef.current);
 
-    const level = quizQuestions[index].level;
-    const limit = level === 'easy'   ? 15
-                 : level === 'medium' ? 20
-                 : level === 'hard'   ? 30
-                 : 0; // jackpot unlimited
-
+    const lvl = questions[idx].level;
+    const limit = lvl === 'easy' ? 25 : lvl === 'medium' ? 35 : lvl === 'hard' ? 45 : 0;
     setTimer(limit);
     setVisibleOptions(['A','B','C','D']);
-    // <-- no resetting of used5050 or usedFlip here
+    progress.setValue(100);
 
     if (limit > 0) {
+      Animated.timing(progress, {
+        toValue: 0,
+        duration: limit * 1000,
+        useNativeDriver: false
+      }).start();
+
       intervalRef.current = setInterval(() => {
-        setTimer(prev => {
-          if (prev === 1) {
+        setTimer(t => {
+          if (t === 1) {
             clearInterval(intervalRef.current);
             onTimeout();
           }
-          return prev - 1;
+          return t - 1;
         });
       }, 1000);
     }
-    return () => clearInterval(intervalRef.current);
-  }, [index, quizQuestions]);
 
-  const getAmount = i => {
-    const ladder = [
-      '1K','2K','3K','5K','10K',
-      '20K','40K','80K','1.6L','3.2L',
-      '6.4L','12.5L','25L','50L','1Cr','1Cr'
-    ];
-    return ladder[i]||'0';
+    return () => clearInterval(intervalRef.current);
+  }, [idx, questions]);
+
+  const PRIZES = ['1K','2K','3K','5K','10K','20K','40K','80K','1.6L','3.2L','6.4L','12.5L','25L','50L','1Cr','1Cr'];
+  const getCurrentPrize = i => PRIZES[i] || '0';
+
+  const getSafeAmount = i => {
+    if (i <= 4) return '0';
+    if (i <= 9) return '10K';
+    if (i <= 14) return '3.2L';
+    return '1Cr';
   };
 
   const onTimeout = () => {
     soundWrong?.replayAsync();
-    Alert.alert("Time's up!", "You ran out of time.", [
-      { text:"OK", onPress: () =>
-        navigation.replace('Result',{ won:false, amount:getAmount(index-1) })
-      }
+    const safe = getSafeAmount(idx - 1);
+    Alert.alert("Time's up!", `You win ₹${safe}`, [
+      { text: 'OK', onPress: () => navigation.replace('Result', { won: false, amount: safe }) }
     ]);
   };
 
-  // 4) Answer handler
   const handleSelect = key => {
     clearInterval(intervalRef.current);
-    const correctKey = quizQuestions[index].answer;
-    if (key === correctKey) {
+    const correct = questions[idx].answer;
+    if (key === correct) {
       soundCorrect?.replayAsync();
-      if (index+1 < quizQuestions.length) {
-        setUsedIds(u => [...u, quizQuestions[index+1].id]);
-        setIndex(i => i+1);
+      if (LEVEL_ENDS.includes(idx)) {
+        setBreakLevel(LEVEL_ENDS.indexOf(idx) + 1);
+        setBreakModal(true);
       } else {
-        navigation.replace('Result',{ won:true, amount:'1Cr' });
+        advance(idx + 1);
       }
     } else {
       soundWrong?.replayAsync();
-      navigation.replace('Result',{ won:false, amount:getAmount(index-1) });
+      const safe = getSafeAmount(idx - 1);
+      navigation.replace('Result', { won: false, amount: safe });
     }
   };
 
-  // 5) Leave game
-  const onLeave = () => {
-    clearInterval(intervalRef.current);
-    navigation.replace('Result',{ won:true, amount:getAmount(index-1) });
+  const advance = next => {
+    setUsedIds(u => [...u, questions[next].id]);
+    setIdx(next);
   };
 
-  // 6) 50:50 lifeline: remove 2 wrong options
-  const useFiftyFifty = () => {
+  const onContinue = () => {
+    setBreakModal(false);
+    advance(idx + 1);
+  };
+
+  const onLeave = () => {
+    clearInterval(intervalRef.current);
+    const safe = getSafeAmount(idx - 1);
+    navigation.replace('Result', { won: true, amount: safe });
+  };
+
+  const use5050 = () => {
     if (used5050) return;
-    const { options, answer } = quizQuestions[index];
-    const wrongs = Object.keys(options).filter(k=>k!==answer);
-    const randomWrongs = wrongs.sort(()=>0.5 - Math.random()).slice(0,2);
-    setVisibleOptions([answer, ...randomWrongs]);
+    const { options, answer } = questions[idx];
+    const wrongs = Object.keys(options).filter(k => k !== answer);
+    const two = wrongs.sort(() => Math.random() - 0.5).slice(0, 2);
+    setVisibleOptions([answer, ...two]);
     setUsed5050(true);
   };
 
-  // 7) Flip lifeline: swap in new same-level question
-  const useFlipQuestion = () => {
+  const useFlip = () => {
     if (usedFlip) return;
-    const current = quizQuestions[index];
-    const pool = allQuestions.filter(q=>
-      q.level===current.level && !usedIds.includes(q.id)
-    );
+    const lvl = questions[idx].level;
+    const pool = allQuestions.filter(q => q.level === lvl && !usedIds.includes(q.id));
     if (!pool.length) {
-      Alert.alert("No flips left","You've seen all in this level.");
+      Alert.alert("No flips left", "All questions of this level used.");
       return;
     }
-    const next = pool[Math.floor(Math.random()*pool.length)];
-    const copy = [...quizQuestions];
-    copy[index] = next;
-    setQuizQuestions(copy);
-    setUsedIds(ids=>[...ids,next.id]);
+    const nxt = pool[Math.floor(Math.random() * pool.length)];
+    const copy = [...questions]; copy[idx] = nxt;
+    setQuestions(copy);
+    setUsedIds(u => [...u, nxt.id]);
     setVisibleOptions(['A','B','C','D']);
     setUsedFlip(true);
   };
@@ -168,73 +171,129 @@ export default function QuizScreen({ navigation }) {
   if (loading) {
     return (
       <View style={styles.loader}>
-        <ActivityIndicator size="large"/>
-        <Text>Loading questions…</Text>
+        <ActivityIndicator size="large" color="#7f00ff" />
+        <Text style={styles.loadingText}>Loading…</Text>
       </View>
     );
   }
 
-  const level = quizQuestions[index].level;
-  const bgColor = {
-    easy:    '#e0ffe0',
-    medium:  '#fffbd1',
-    hard:    '#ffe0e0',
-    jackpot: '#f3e0ff'
-  }[level]||'#fff';
+  const lvl = questions[idx].level;
+  const bg = lvl === 'easy' ? '#f5e6ff'
+           : lvl === 'medium' ? '#e9d4ff'
+           : lvl === 'hard' ? '#dec2ff'
+           : '#ecd9ff';
 
   return (
-    <View style={[styles.container,{backgroundColor:bgColor}]}>
-      {/* Ladder Modal */}
-      <Modal visible={ladderVisible} transparent animationType="slide">
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Prize Ladder</Text>
-            <ScrollView style={{height:300}}>
-              <PrizeLadder currentIndex={index}/>
-            </ScrollView>
-            <Button title="Close" onPress={()=>setLadderVisible(false)}/>
+    <View style={[styles.container, { backgroundColor: bg }]}>
+      {/* Level Modal */}
+      <Modal visible={breakModal} transparent animationType="fade">
+        <View style={styles.overlay}>
+          <View style={styles.breakBox}>
+            <Text style={styles.breakTitle}>
+              {LEVEL_LABELS[breakLevel - 1]} level completed!
+            </Text>
+            <Text style={styles.breakMsg}>
+              You secured ₹{SECURED_AMOUNTS[breakLevel]}
+            </Text>
+            <TouchableOpacity style={styles.contBtn} onPress={onContinue}>
+              <Text style={styles.contTxt}>Continue</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </Modal>
 
-      <Text style={styles.header}>₹{getAmount(index)} • Q{index+1}</Text>
-      <Text style={styles.timer}>
-        {level!=='jackpot' ? `⏱ ${timer}s` : '🎯 Jackpot!' }
-      </Text>
-      <Button title="🏆 Show Ladder" onPress={()=>setLadderVisible(true)}/>
+      {/* Prize Ladder Modal */}
+      <TouchableOpacity style={styles.ladderBtn} onPress={() => setLadderVisible(true)}>
+        <Text style={styles.ladderTxt}>🏆 Ladder</Text>
+      </TouchableOpacity>
+      <Modal visible={ladderVisible} transparent animationType="slide">
+        <View style={styles.overlay}>
+          <View style={styles.ladderModal}>
+            <Text style={styles.modalTitle}>Prize Ladder</Text>
+            <ScrollView style={{ height: 300 }}>
+              <PrizeLadder currentIndex={idx} />
+            </ScrollView>
+            <TouchableOpacity style={styles.closeBtn} onPress={() => setLadderVisible(false)}>
+              <Text style={styles.closeTxt}>Close</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
+      <Text style={styles.header}>₹{getCurrentPrize(idx)} • Q{idx + 1}</Text>
+      <Text style={styles.timer}>{lvl !== 'jackpot' ? `⏱ ${timer}s` : '🎯 Jackpot!'}</Text>
+
+      {/* Animated Time Bar */}
+      {lvl !== 'jackpot' && (
+        <View style={styles.timerBarContainer}>
+          <Animated.View style={[
+            styles.timerBarFill,
+            {
+              width: progress.interpolate({
+                inputRange: [0, 100],
+                outputRange: ['0%', '100%']
+              })
+            }
+          ]} />
+        </View>
+      )}
 
       <QuestionCard
-        questionObj={quizQuestions[index]}
+        questionObj={questions[idx]}
         onSelect={handleSelect}
         visibleOptions={visibleOptions}
       />
 
       <LifelineBar
-        onFiftyFifty={useFiftyFifty}
-        onFlipQuestion={useFlipQuestion}
+        onFiftyFifty={use5050}
+        onFlipQuestion={useFlip}
         used5050={used5050}
         usedFlip={usedFlip}
       />
 
-      <Button title="🚪 Leave Game" onPress={onLeave} color="#d9534f"/>
+      <TouchableOpacity style={styles.leaveBtn} onPress={onLeave}>
+        <Text style={styles.leaveTxt}>🚪 Leave</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex:1, padding:16, paddingTop:40 },
-  header:    { textAlign:'center', fontSize:18, fontWeight:'bold' },
-  timer:     { textAlign:'center', fontSize:16, color:'#d00', marginVertical:8 },
-  loader:    { flex:1, justifyContent:'center', alignItems:'center' },
-  modalOverlay: {
-    flex:1, backgroundColor:'rgba(0,0,0,0.5)',
-    justifyContent:'center', alignItems:'center'
+  container: { flex: 1, padding: 20, paddingTop: 50 },
+  header: { textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#4b0082' },
+  timer: { textAlign: 'center', fontSize: 18, color: '#800080', marginVertical: 10 },
+
+  timerBarContainer: {
+    height: 10,
+    width: '100%',
+    backgroundColor: '#e0d4ff',
+    borderRadius: 6,
+    overflow: 'hidden',
+    marginBottom: 10
   },
-  modalContent: {
-    width:'80%', backgroundColor:'#fff',
-    borderRadius:8, padding:16, elevation:10
+  timerBarFill: {
+    height: '100%',
+    backgroundColor: '#7f00ff'
   },
-  modalTitle: {
-    fontSize:18, fontWeight:'bold', marginBottom:8, textAlign:'center'
-  }
+
+  loader: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  loadingText: { marginTop: 8, color: '#7f00ff' },
+
+  overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'center', alignItems: 'center' },
+  breakBox: { width: '80%', backgroundColor: '#fff', borderRadius: 8, padding: 24, alignItems: 'center' },
+  breakTitle: { fontSize: 22, fontWeight: 'bold', color: '#4b0082' },
+  breakMsg: { fontSize: 18, color: '#800080', marginVertical: 12 },
+  contBtn: { backgroundColor: '#7f00ff', padding: 12, borderRadius: 6 },
+  contTxt: { color: '#fff', fontSize: 16 },
+
+  ladderBtn: { position: 'absolute', top: 50, right: 20, backgroundColor: '#daf0ff', padding: 10, borderRadius: 6 },
+  ladderTxt: { color: '#4b0082', fontWeight: '600' },
+
+  ladderModal: { width: '80%', backgroundColor: '#fff', borderRadius: 8, padding: 20, alignItems: 'center' },
+  modalTitle: { fontSize: 20, fontWeight: 'bold', color: '#4b0082', marginBottom: 10 },
+  closeBtn: { marginTop: 12, backgroundColor: '#7f00ff', padding: 10, borderRadius: 6 },
+  closeTxt: { color: '#fff', fontSize: 16 },
+
+  leaveBtn: { backgroundColor: '#ff6699', padding: 12, borderRadius: 6, alignSelf: 'center', marginTop: 10 },
+  leaveTxt: { color: '#fff', fontSize: 16 }
 });

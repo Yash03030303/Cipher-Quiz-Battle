@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, ScrollView, Animated } from 'react-native';
 
 const ladder = [
   '1 Cr','50 L','25 L','12.5 L','6.4 L',
@@ -8,36 +8,57 @@ const ladder = [
 ];
 
 export default function PrizeLadder({ currentIndex }) {
+  const slideAnim = useRef(new Animated.Value(-200)).current;
+
+  useEffect(() => {
+    Animated.timing(slideAnim, {
+      toValue: 0,
+      duration: 500,
+      useNativeDriver: true
+    }).start();
+  }, [currentIndex]);
+
   return (
-    <ScrollView style={styles.container}>
-      {ladder.map((amt, idx) => {
-        const qNum = ladder.length - idx; // Q16 at top
-        const isActive = currentIndex + 1 === qNum;
-        return (
-          <Text
-            key={qNum}
-            style={[styles.item, isActive && styles.active]}
-          >
-            Q{qNum}: ₹{amt}
-          </Text>
-        );
-      })}
-    </ScrollView>
+    <Animated.View style={[styles.container, { transform: [{ translateX: slideAnim }] }]}>
+      <ScrollView>
+        {ladder.map((amt, idx) => {
+          const qNum = ladder.length - idx;
+          const active = currentIndex + 1 === qNum;
+          return (
+            <View key={qNum} style={[styles.item, active && styles.activeItem]}>
+              <Text style={[styles.text, active && styles.activeText]}>
+                Q{qNum}: ₹{amt}
+              </Text>
+            </View>
+          );
+        })}
+      </ScrollView>
+    </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:'#f7f7f7',
-    borderRadius:6
+    backgroundColor:'#f7f0ff',
+    borderRadius:8,
+    padding:8,
+    elevation:4,
+    maxHeight: 300
   },
   item: {
-    padding:8,
-    fontSize:12,
-    color:'#333'
+    paddingVertical:8,
+    paddingHorizontal:12,
+    borderBottomWidth:1,
+    borderBottomColor:'#ddd'
   },
-  active: {
-    backgroundColor:'#4caf50',
+  text: {
+    fontSize:14,
+    color:'#4b0082'
+  },
+  activeItem: {
+    backgroundColor:'#7f00ff'
+  },
+  activeText: {
     color:'#fff',
     fontWeight:'bold'
   }

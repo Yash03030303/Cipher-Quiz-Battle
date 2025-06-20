@@ -1,5 +1,5 @@
 {
-  "name": "quizapp",
+  "name": "Cipher Quiz Battle",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,15 +9,18 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo-google-fonts/montserrat": "^0.4.1",
     "@expo/vector-icons": "^14.1.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^7.1.13",
     "@react-navigation/stack": "^7.3.6",
     "expo": "~53.0.12",
     "expo-av": "~15.1.6",
+    "expo-font": "~13.3.1",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
     "react-native": "0.79.4",
+    "react-native-confetti-cannon": "^1.5.2",
     "react-native-gesture-handler": "~2.24.0",
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
